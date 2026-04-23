@@ -48,16 +48,6 @@ class ModuloCampoModel extends MainModel
                 return;
             }
 
-            if (empty($this->form_data['modulo_campo_fk'])) {
-                TMessenger::Error("Preencha o campo É uma chave estrangeira!");
-                return;
-            }
-
-            if (empty($this->form_data['modulo_campo_required'])) {
-                TMessenger::Error("Preencha o campo Requirido!");
-                return;
-            }
-
 
 
 
@@ -86,10 +76,11 @@ class ModuloCampoModel extends MainModel
                 $this->form_data['modulo_campo_reference_option'],
                 (isset($this->form_data['modulo_campo_required']) && $this->form_data['modulo_campo_required'] == true) ? 1 : 0,
                 (isset($this->form_data['modulo_campo_is_search']) && $this->form_data['modulo_campo_is_search'] == true) ? 1 : 0,
+                1
             );
 
             $this->db = new Database();
-            $result = $this->db->select("tbmodulo_campo", "count(*) total", "WHERE modulo_campo_modulo_id='" . $this->form_data['modulo_campo_modulo_id'] . "' AND modulo_campo_nome='" . $this->form_data['modulo_campo_nome'] . "' AND modulo_campo_title='" . $this->form_data['modulo_campo_title'] . "' AND modulo_campo_tipo='" . $this->form_data['modulo_campo_tipo'] . "' AND modulo_campo_fk='" . $this->form_data['modulo_campo_fk'] . "' AND modulo_campo_required='" . $this->form_data['modulo_campo_required'] . "'");
+            $result = $this->db->select("tbmodulo_campo", "count(*) total", "WHERE modulo_campo_modulo_id='" . $this->form_data['modulo_campo_modulo_id'] . "' AND modulo_campo_nome='" . $this->form_data['modulo_campo_nome'] . "' AND modulo_campo_title='" . $this->form_data['modulo_campo_title'] . "' AND modulo_campo_tipo='" . $this->form_data['modulo_campo_tipo'] . "'");
 
             if ($result[0]["total"] <= 0) {
                 $r = $this->db->insert('tbmodulo_campo', $fields, $values);
@@ -102,7 +93,6 @@ class ModuloCampoModel extends MainModel
             } else {
                 TMessenger::Error('Erro ao criar item, dado existente!!');
             }
-
         }
     }
 
@@ -131,17 +121,6 @@ class ModuloCampoModel extends MainModel
                 TMessenger::Error("Preencha o campo Tipo!");
                 return;
             }
-
-            if (empty($this->form_data['modulo_campo_fk'])) {
-                TMessenger::Error("Preencha o campo É uma chave estrangeira!");
-                return;
-            }
-
-            if (empty($this->form_data['modulo_campo_required'])) {
-                TMessenger::Error("Preencha o campo Requirido!");
-                return;
-            }
-
 
 
             if (!isset($this->form_data['modulo_campo_fk'])) {

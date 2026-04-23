@@ -14,66 +14,50 @@
         }
         ?>
         <div class="formulario">
-            
-
-                <div class="field">
-                    <legend>Módulo:</legend>
-                    <?php TForm::setInputSelect('modulo_campo_modulo_id', 'tbmodulos', 'modulos_id', 'modulos_title', $modelo, 'ORDER BY modulos_title DESC'); ?>
-                </div>
-                
-
-            <div class="field"> <legend>Nome:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_nome]" value="<?php echo isset($modelo->form_data['modulo_campo_nome']) ? $modelo->form_data['modulo_campo_nome'] : '' ?>"/>
+            <div class="field">
+                <legend>Módulo:</legend>
+                <?php TForm::setInputSelect('modulo_campo_modulo_id', 'tbmodulos', 'modulos_id', 'modulos_title', $modelo, 'ORDER BY modulos_title DESC'); ?>
             </div>
-            
-
-            <div class="field"> <legend>Título:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_title]" value="<?php echo isset($modelo->form_data['modulo_campo_title']) ? $modelo->form_data['modulo_campo_title'] : '' ?>"/>
+            <div class="field">
+                <legend>Título:</legend>
+                <input id="modulo_campo_title" class="txt_input" type="text" name="data[modulo_campo_title]" value="<?php echo isset($modelo->form_data['modulo_campo_title']) ? $modelo->form_data['modulo_campo_title'] : '' ?>" />
             </div>
-            
-
-
-                <div class="field">
-                    <legend>Tipo:</legend>
-                    <?php TForm::setInputSelect('modulo_campo_tipo', 'tbtipo_campo', 'tipo_campo_id', 'tipo_campo_nome', $modelo, 'ORDER BY tipo_campo_nome DESC'); ?>
-                </div>
-                
-
-            <div class="field"> <legend>É uma chave estrangeira:</legend>
-                <input class="txt_input" type="checkbox" name="data[modulo_campo_fk]" value="true"  <?php echo  isset($modelo->form_data['modulo_campo_fk']) && $modelo->form_data['modulo_campo_fk'] ==true ? 'checked' : '' ?>/>
+            <div class="field">
+                <legend>Nome:</legend>
+                <input id="modulo_campo_nome" class="txt_input" type="text" name="data[modulo_campo_nome]" value="<?php echo isset($modelo->form_data['modulo_campo_nome']) ? $modelo->form_data['modulo_campo_nome'] : '' ?>" />
             </div>
-            
-
-            <div class="field"> <legend>Tabela que referencia:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_reference_table]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_table']) ? $modelo->form_data['modulo_campo_reference_table'] : '' ?>"/>
+            <div class="field">
+                <legend>Tipo:</legend>
+                <?php TForm::setInputSelect('modulo_campo_tipo', 'tbtipo_campo', 'tipo_campo_id', 'tipo_campo_nome', $modelo, 'ORDER BY tipo_campo_nome DESC'); ?>
             </div>
-            
-
-            <div class="field"> <legend>Chave que faz referencia:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_reference_key]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_key']) ? $modelo->form_data['modulo_campo_reference_key'] : '' ?>"/>
+            <div class="field">
+                <legend>É uma chave estrangeira:</legend>
+                <input class="txt_input" type="checkbox" name="data[modulo_campo_fk]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_fk']) && $modelo->form_data['modulo_campo_fk'] == true ? 'checked' : '' ?> />
             </div>
-            
-
-            <div class="field"> <legend>Campo que será exibido:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_reference_option]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_option']) ? $modelo->form_data['modulo_campo_reference_option'] : '' ?>"/>
+            <div class="field">
+                <legend>Tabela que referencia:</legend>
+                <input class="txt_input" type="text" name="data[modulo_campo_reference_table]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_table']) ? $modelo->form_data['modulo_campo_reference_table'] : '' ?>" />
             </div>
-            
-
-            <div class="field"> <legend>Requirido:</legend>
-                <input class="txt_input" type="checkbox" name="data[modulo_campo_required]" value="true"  <?php echo  isset($modelo->form_data['modulo_campo_required']) && $modelo->form_data['modulo_campo_required'] ==true ? 'checked' : '' ?>/>
+            <div class="field">
+                <legend>Chave que faz referencia:</legend>
+                <input class="txt_input" type="text" name="data[modulo_campo_reference_key]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_key']) ? $modelo->form_data['modulo_campo_reference_key'] : '' ?>" />
             </div>
-            
-
-            <div class="field"> <legend>É um filtro:</legend>
-                <input class="txt_input" type="checkbox" name="data[modulo_campo_is_search]" value="true"  <?php echo  isset($modelo->form_data['modulo_campo_is_search']) && $modelo->form_data['modulo_campo_is_search'] ==true ? 'checked' : '' ?>/>
+            <div class="field">
+                <legend>Campo que será exibido:</legend>
+                <input class="txt_input" type="text" name="data[modulo_campo_reference_option]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_option']) ? $modelo->form_data['modulo_campo_reference_option'] : '' ?>" />
             </div>
-            
-
-            <div class="field"> <legend>Status:</legend>
-                <input class="txt_input" type="checkbox" name="data[modulo_campo_status]" value="true"  <?php echo  isset($modelo->form_data['modulo_campo_status']) && $modelo->form_data['modulo_campo_status'] ==true ? 'checked' : '' ?>/>
+            <div class="field">
+                <legend>Requirido:</legend>
+                <input class="txt_input" type="checkbox" name="data[modulo_campo_required]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_required']) && $modelo->form_data['modulo_campo_required'] == true ? 'checked' : '' ?> />
             </div>
-            
-
+            <div class="field">
+                <legend>É um filtro:</legend>
+                <input class="txt_input" type="checkbox" name="data[modulo_campo_is_search]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_is_search']) && $modelo->form_data['modulo_campo_is_search'] == true ? 'checked' : '' ?> />
+            </div>
+            <div class="field">
+                <legend>Status:</legend>
+                <input class="txt_input" type="checkbox" name="data[modulo_campo_status]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_status']) && $modelo->form_data['modulo_campo_status'] == true ? 'checked' : '' ?> />
+            </div>
         </div>
     </div>
     <div class="box">
@@ -90,4 +74,20 @@
     const novo = () => {
         window.location.href = "<?php echo HOME_URI . 'modulo-campo/cadastro/'; ?>";
     }
+    const inputOriginal = document.getElementById('modulo_campo_title');
+    const modulo_campo_nome = document.getElementById('modulo_campo_nome');
+    inputOriginal.addEventListener('input', function() {
+        let texto = inputOriginal.value;
+
+        let convertido = texto
+            .toLowerCase() // tudo minúsculo
+            .normalize('NFD') // separa acentos
+            .replace(/[\u0300-\u036f]/g, '') // remove acentos
+            .replace(/\s+/g, '-') // espaços vira "-"
+            .replace(/[^\w-]+/g, '') // remove caracteres especiais
+            .replace(/--+/g, '-') // evita "--"
+            .replace(/^-+|-+$/g, ''); // remove "-" do início/fim
+
+        modulo_campo_nome.value = convertido.replace("-", "_");
+    });
 </script>
