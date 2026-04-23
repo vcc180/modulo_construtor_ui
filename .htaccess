@@ -1,0 +1,15 @@
+RewriteEngine On
+ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+ 
+RewriteRule ^(.+)$ index.php?url=$1 [QSA,L,B]
+
+
+#RewriteRule %{REQUEST_FILENAME} !-f
+#RewriteRule %{REQUEST_FILENAME} !-d
+
+#RewriteRule ^([a-z]+)\/?$ index.php?view=$1 [NC,L]
+#RewriteRule ^([a-z]+)\/([a-z]+)\/?$ index.php?view=$1&model=$2 [NC,L]
+#RewriteRule ^([a-z]+)\/([a-z]+)\/([a-z,0-9,A-Z,;,_-]+)\/?$ index.php?view=$1&model=$2&id=$3 [NC,L]

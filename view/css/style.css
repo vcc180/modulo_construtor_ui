@@ -1,0 +1,638 @@
+/*
+To change this license header, choose License Headers in Project Properties.nt
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/05/2019, 08:13:09
+    Author     : EGSM
+*/
+/*@import url(//db.onlinewebfonts.com/c/f80bfefb1798998a9f13904efc67d707?family=GeoSlab703+Md+BT);*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-primaria: #283B60;
+    --cor-segundaria: #5271C0;
+    --cor-tercearia: #28254F;
+    --menu-text-color: white;
+    --menu-text-color-01: #333;
+}
+
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f1f4fb;
+}
+
+.txt_input:focus {
+    background-color: #e0e0ff;
+}
+
+
+#main {
+    width: 100%;
+    display: table;
+    min-width: 320px;
+}
+
+#container {
+    width: 100%;
+    padding: 20px;
+}
+
+.box {
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    clear: both;
+}
+
+.legenda-h1 {
+    font-size: 1.6em;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+}
+
+.title-box {
+    font-size: 1.4em;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    color: var(--menu-text-color-01);
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    padding: 10px;
+}
+
+.formulario .field {
+    max-width: 500px;
+}
+
+.formulario .field legend {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filtros {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.filtros .field {
+    flex: 1;
+    width: 100%;
+}
+
+.filtros .field legend {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#siderbar {
+    width: 19%;
+    min-height: 100vh;
+    background-color: white;
+    float: left;
+    clear: both;
+    border-bottom: 5px solid #093E8C;
+}
+
+#siderbar ul {
+    list-style: none;
+    width: 100%;
+}
+
+#siderbar ul li {
+    width: 100%;
+    display: block;
+    margin: 1px 0;
+    float: left;
+}
+
+#siderbar ul li a {
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 25px 10px;
+    color: white;
+    text-decoration: none;
+    background-color: #093E8C;
+    float: left;
+}
+
+#siderbar ul li a:hover {
+    background-color: #ffa946;
+}
+
+#siderbar ul ul {
+    visibility: hidden;
+    display: none;
+}
+
+#siderbar ul li:hover>ul {
+    visibility: visible;
+    display: table;
+}
+
+#siderbar ul ul li a {
+    background-color: white;
+    color: #666;
+}
+
+#siderbar:before {
+    content: '';
+    display: table;
+}
+
+#siderbar:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#view-perfil {
+    width: 100%;
+    background-color: white;
+    padding: 15px;
+}
+
+#view-perfil img {
+    width: 120px;
+    background-color: white;
+    border: 6px solid #093E8C;
+    margin-right: 25px;
+}
+
+.view-perfil-t01 {
+    font-size: 1.0em;
+    color: #b2b2b2;
+}
+
+.view-perfil-t02 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.view-perfil-t03 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #153791;
+}
+
+
+
+#box-information {
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+}
+
+#box-information h1 {
+    font-size: 1.4em;
+    color: #666;
+    list-style: none;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+}
+
+#box-information table {
+    width: 100%;
+    margin: 25px 0;
+}
+
+/*min-height: 800px;*/
+#view {
+    width: 100%;
+    background-color: none;
+    float: right;
+    margin-left: 1%;
+}
+
+#clear {
+    clear: both;
+}
+
+
+/*================Menssage Error, Confirm, Question e Alert=================*/
+.Error {
+    width: 100%;
+    background-color: #FE8484;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid brown;
+    color: #900000;
+    padding-left: 45px;
+    background-image: url(icon-error.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.alert {
+    width: 100%;
+    background-color: #ff9900;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid brown;
+    color: black;
+    padding-left: 45px;
+    background-image: url(icon-inf.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.Confirm {
+    width: 100%;
+    background-color: #01A992;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #01A992;
+    color: white;
+    padding-left: 45px;
+    background-image: url(icon-confirme.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.Question {
+    width: 100%;
+    background-color: #FFFAA3;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ffcc00;
+    color: black;
+    font-weight: bold;
+    padding-left: 45px;
+    background-image: url(icon-question.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.Question a {
+    text-decoration: none;
+    color: black;
+}
+
+.Question a:hover {
+    text-decoration: underline;
+}
+
+/*================Menssage Error, Confirm, Question e Alert=================*/
+
+
+.link {
+    list-style: none;
+    text-decoration: none;
+    color: #153791;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+div#load_screen {
+    background: var(--cor-primaria);
+    position: fixed;
+    z-index: 100000;
+    top: 0px;
+    width: 100vW;
+    height: 100vH;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#load_screen>img#loading {
+    width: 200px;
+    background-size: contain;
+}
+
+
+@media only screen and (max-width:1024px) {
+    #widgets-box {
+        width: 100%;
+        height: 150px;
+        display: table;
+        padding: 10px;
+        font-family: 'Roboto', sans-serif;
+        border: 1px solid #ccc;
+        margin: 5px;
+    }
+
+    #view-sala-virtual #content-box-information {
+        width: 300px;
+        float: right;
+        padding: 15px;
+    }
+
+    #view-sala-virtual #content-box-doccumento {
+        width: 300px;
+        float: right;
+        padding: 15px;
+    }
+
+
+    .title-box {
+        font-size: 1.0em;
+        margin-bottom: 15px;
+    }
+
+    #view-sala-virtual #preview-video {
+        width: 100%;
+        height: 250px;
+        float: left;
+        margin-bottom: 25px;
+    }
+
+    #view-sala-virtual #content-box-video {
+        width: 675px;
+        float: left;
+        padding: 15px;
+    }
+
+    #view-sala-virtual #content-doccumento {
+        width: 300px;
+        float: right;
+        padding: 15px;
+        background-color: red;
+    }
+
+    #view-sala-virtual #content-aluno-online {
+        width: 300px;
+        float: right;
+        padding: 15px;
+    }
+
+    #content-box-comentarios {
+        width: 100%;
+        float: left;
+        padding: 3px;
+    }
+
+    #content-box-doccumento {
+        width: 300px;
+        float: right;
+    }
+
+    .color-1 {
+        font-size: 0.6em;
+    }
+
+    .color-2 {
+        font-size: 0.6em;
+    }
+
+    .color-3 {
+        font-size: 0.6em;
+    }
+
+    #text-chat-box .text-align-left {
+        width: 85%;
+        padding: 12px;
+        font-size: 0.7em;
+        border-top-right-radius: 10px;
+    }
+
+    #text-chat-box .text-align-right {
+        width: 85%;
+        padding: 12px;
+        font-size: 0.7em;
+        border-top-left-radius: 10px;
+    }
+
+    #text-chat-box .img-left {
+        margin-right: 5px;
+        float: left;
+        width: 32px;
+        height: 32px;
+    }
+
+    #text-chat-box .img-right {
+        margin-left: 5px;
+        float: right;
+        width: 32px;
+        height: 32px;
+    }
+
+
+}
+
+
+
+@media only screen and (max-width: 1023px) {
+    #messager-box-background {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #messager-box {
+        width: 100%;
+        padding: 10px;
+        padding-top: 0px;
+        margin: 0;
+    }
+
+    #messager-box-header {
+        padding: 15px;
+    }
+
+    #messager-box-content {
+        padding: 5px;
+        margin: 0;
+    }
+
+    #messager-box-footer {
+        padding: 15px;
+    }
+
+    #messager-box-footer .close {
+        padding: 5px;
+    }
+
+    #messager-box .detalhe-view {
+        padding: 0;
+        margin: 0;
+    }
+
+
+
+    #view-sala-virtual #content-box-information {
+        width: 100%;
+        float: left;
+    }
+
+    #view-sala-virtual #preview-video {
+        width: 100%;
+        height: 250px;
+        float: left;
+        margin-bottom: 25px;
+    }
+
+    #view-sala-virtual #content-box-video {
+        width: 100%;
+        float: left;
+    }
+
+    #view-sala-virtual #content-doccumento {
+        width: 100%;
+        float: left;
+    }
+
+    #view-sala-virtual #content-aluno-online {
+        width: 100%;
+        float: left;
+    }
+
+    #content-box-comentarios {
+        width: 100%;
+        float: left;
+        padding: 3px;
+    }
+
+    #content-box-doccumento {
+        width: 100%;
+        float: left;
+    }
+
+    .color-1 {
+        font-size: 0.6em;
+    }
+
+    .color-2 {
+        font-size: 0.6em;
+    }
+
+    .color-3 {
+        font-size: 0.6em;
+    }
+
+
+
+    #text-chat-box .text-align-left {
+        width: 85%;
+        padding: 12px;
+        font-size: 0.7em;
+        border-top-right-radius: 10px;
+    }
+
+    #text-chat-box .text-align-right {
+        width: 85%;
+        padding: 12px;
+        font-size: 0.7em;
+        border-top-left-radius: 10px;
+    }
+
+    #text-chat-box .img-left {
+        margin-right: 5px;
+        float: left;
+        width: 32px;
+        height: 32px;
+    }
+
+    #text-chat-box .img-right {
+        margin-left: 5px;
+        float: right;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media only screen and (max-width: 424px) {
+    .title-box {
+        font-size: 0.8em;
+        margin-bottom: 15px;
+    }
+
+    #view-sala-virtual .legenda-01 {
+        font-size: 0.7em;
+        padding: 10px;
+    }
+
+    #view-sala-virtual .legenda-02 {
+        font-size: 0.7em;
+        padding: 10px;
+    }
+
+    #view-sala-virtual .legenda-03 {
+        font-size: 0.7em;
+        padding: 10px;
+    }
+
+    #view-sala-virtual .legenda-04 {
+        font-size: 0.7em;
+        padding: 10px;
+    }
+
+    #view-sala-virtual .legenda-05 {
+        font-size: 0.7em;
+        padding: 10px;
+    }
+
+    #content-box-information {
+        padding: 15px;
+        padding-top: 5px;
+    }
+
+    #content-box-video {
+        padding: 15px;
+        padding-top: 5px;
+    }
+
+    #text-chat-box .text-align-right {
+        width: 84%;
+    }
+
+    #text-chat-box .text-align-left {
+        width: 84%;
+    }
+
+    #box-document .item {
+        font-size: 0.6em;
+    }
+
+    #box-document .upload-button {
+        font-size: 0.6em;
+    }
+}
+
+
+
+
+@media print {
+    div {
+        visibility: hidden;
+    }
+
+    .print {
+        visibility: visible;
+    }
+}

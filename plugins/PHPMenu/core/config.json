@@ -1,0 +1,102 @@
+{
+    "name": "plugin/phpmenu/",
+    "description": "Gerar menu interativo",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Vinícius Cordeiro Carvalho",
+            "email": "vinicius_cproducoes@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "ext-xml": "*"
+    },
+    "MENUS": {
+        "HOME": {
+            "TITLE": "HOME",
+            "SUB_MENU": 0,
+            "ICON": "fa fa-home",
+            "LINK": "home"
+        },
+        "PROJETOS": {
+            "TITLE": "Projetos",
+            "SUB_MENU": 1,
+            "ICON": "fas fa-project-diagram",
+            "MENUS": {
+                "PROJETOS": {
+                    "TITLE": "Projetos",
+                    "LINK": "projetos"
+                }
+            }
+        },
+        "MODULOS": {
+            "TITLE": "Módulos",
+            "SUB_MENU": 1,
+            "ICON": "fa fa-cogs",
+            "MENUS": {
+                "MODULOS": {
+                    "TITLE": "Módulos",
+                    "LINK": "modulos"
+                },
+                "MODULO_CAMPO": {
+                    "TITLE": "Módulo Campo",
+                    "LINK": "modulo-campo"
+                },
+                "TIPO_CAMPO": {
+                    "TITLE": "Tipo Campo",
+                    "LINK": "tipo-campo"
+                }
+            }
+        },
+        "MENU": {
+            "TITLE": "Menu",
+            "SUB_MENU": 1,
+            "ICON": "fa fa-bars",
+            "MENUS": {
+                "MENU": {
+                    "TITLE": "Menu",
+                    "LINK": "menu"
+                },
+                "SUBMENU": {
+                    "TITLE": "Submenu",
+                    "LINK": "submenu"
+                }
+            }
+        },
+        "ICONS": {
+            "TITLE": "Icones",
+            "SUB_MENU": 1,
+            "ICON": "fas fa-code",
+            "MENUS": {
+                "ICONS": {
+                    "TITLE": "Icons",
+                    "LINK": "icons"
+                }
+            }
+        },
+        "CONFIGURACOES": {
+            "TITLE": "CONFIGURAÇÕES",
+            "SUB_MENU": 1,
+            "ICON": "fa fa-wrench",
+            "MENUS": {
+                "USUARIO_SISTEM": {
+                    "LINK": "usuario-sistema",
+                    "TITLE": "Usuários do Sistema",
+                    "ICON": ""
+                },
+                "TIPO_USUARIO": {
+                    "TITLE": "Tipo Usuário",
+                    "LINK": "tipo-usuario",
+                    "ICON": ""
+                }
+            }
+        },
+        "LOGOUT": {
+            "TITLE": "SAIR",
+            "SUB_MENU": 0,
+            "LINK": "logout",
+            "ICON": "fa fa-power-off"
+        }
+    }
+}

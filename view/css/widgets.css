@@ -1,0 +1,386 @@
+.txt_input {
+    width: 100%;
+    border: 2px solid #2EACB8;
+    padding: 10px;
+    font-size: 1.0em;
+    border-radius: 8px;
+}
+
+.txt_input:focus {
+    outline: 0;
+}
+
+.bt_input {
+    width: 150px;
+    border: none;
+    background-color: var(--cor-primaria);
+    color: white;
+    font-size: 1.0em;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+
+#welcome-legenda {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+/*====================Tabelas==================*/
+.tb {
+    width: 100%;
+    border: 1px solid var(--cor-primaria);
+    font-size: 0.8em;
+    display: table;
+}
+
+.tb-legend {
+    background-color: var(--cor-primaria);
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500px;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.tb-title {
+    background-color: var(--cor-primaria);
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500px;
+    color: white;
+}
+
+.tb-title-02 {
+    background-color: #F58634;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500px;
+    color: white;
+}
+
+.tb-cell-center {
+    text-align: center;
+    padding: 10px;
+    text-transform: none;
+    color: black;
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+.tb-cell-left {
+    text-align: left;
+    padding: 10px;
+    text-transform: none;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+.tb-cell-justify {
+    text-align: justify;
+    padding: 10px;
+    text-transform: none;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+.tb-cell-justify-top {
+    text-align: justify;
+    vertical-align: top;
+    padding: 10px;
+    text-transform: none;
+    color: black;
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+.tb-cell-right {
+    text-align: right;
+    padding: 10px;
+    text-transform: none;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+.tb tr:hover {
+    background-color: #ecf3ec;
+}
+
+/*#ffa946*/
+.paginacao {
+    text-align: left;
+    padding: 10px;
+    text-transform: none;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid var(--cor-primaria);
+}
+
+.paginacao:hover {
+    background-color: none;
+}
+
+.tb .link a {
+    padding: 15px;
+    color: black;
+    cursor: pointer;
+}
+
+.tb .link a:hover {
+    background-color: var(--cor-segundaria);
+}
+
+.tb td {
+    padding: 15px;
+}
+
+#selected {
+    background-color: var(--cor-primaria);
+    color: white;
+}
+
+
+
+
+/*===========Window=========*/
+
+#messager-box-background {
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    box-sizing: border-box;
+}
+
+#messager-box {
+    width: 600px;
+    background-color: white;
+    margin: 25vh auto;
+    color: #666;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+#messager-box-header {
+    width: 100%;
+    padding: 25px;
+    border-bottom: 1px solid #ccc;
+    background-color: white;
+    text-transform: uppercase;
+}
+
+#messager-box-header .close {
+    padding: 25px;
+    font-size: 15px;
+    text-align: center;
+    float: right;
+    top: -25px;
+    right: -25px;
+    position: relative;
+    color: #777;
+}
+
+#messager-box-content {
+    width: 100%;
+    min-height: 150px;
+    padding: 15px 25px;
+    padding-bottom: 5px;
+}
+
+#messager-box-footer {
+    width: 100%;
+    padding: 25px;
+    border-top: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+#messager-box-footer a {
+    padding: 11px 45px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    clear: both;
+}
+
+#messager-box-footer a:hover {
+    text-decoration: underline;
+}
+
+#messager-box-footer .color-1 {
+    background-color: #339900;
+    border: 1px solid #777;
+}
+
+#messager-box-footer .color-2 {
+    background-color: #08c;
+    border: 1px solid #777;
+}
+
+#messager-box-content .div-formulario {
+    width: 100%;
+    border: none;
+    min-height: 350px;
+    background: white;
+    box-sizing: border-box;
+}
+
+
+/*============Float Action Button=============*/
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+}
+
+.fab-container .fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: #d60000;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.fab-container .fab:hover {
+    transform: scale(1.1);
+}
+
+.fab-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: 0.3s;
+}
+
+.fab-options.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.fab-item {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    background: #fff;
+    color: #d60000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.fab-item:hover {
+    background: #d60000;
+    color: #fff;
+}
+
+/*========== style buttons ==========*/
+.button {
+    min-width: 150px;
+    border: none;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.button-green {
+    background-color: #04AA6D;
+}
+
+/* Green */
+.button-blue {
+    background-color: #008CBA;
+}
+
+/* Blue */
+.button-red {
+    background-color: var(--cor-primaria);
+}
+
+/* Red */
+.button-black {
+    background-color: black;
+    color: #e7e7e7;
+}
+
+/* Gray */
+.button-gray {
+    background-color: #555555;
+}
+
+/* Black */
+
+.button-green:hover {
+    background-color: #03724A;
+}
+
+.button-blue:hover {
+    background-color: #005875;
+}
+
+.button-red:hover {
+    background-color: #A30000;
+}
+
+.button-black:hover {
+    background-color: #303030;
+}
+
+.button-gray:hover {
+    background-color: #3B3B3B;
+}
+
+
+/*========== style buttons ==========*/
+#iconList i {
+    font-size: 30px;
+}
+
+#iconList {
+    list-style: none;
+    height: 300px;
+    padding: 10px;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30px, 5fr));
+    gap: 10px;
+    row-gap: 10px;
+    margin-top: 10px;
+}
+
+#iconList i {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: var(--cor-primaria);
+}

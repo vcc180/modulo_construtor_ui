@@ -1,0 +1,217 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+    font-family: "arial";
+}
+
+body {
+    background-color: #28254F;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+#main {
+    width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    font-size: 1.0em;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
+}
+
+#page {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    margin: 5% auto;
+    display: table;
+    
+}
+
+#page form {
+    width: 350px;
+    padding: 5px;
+    border: 36px solid transparent;
+    margin: 0 auto;
+}
+
+
+.txt_input {
+    width: 100%;
+    border: 2px solid #E57618;
+    padding: 8px;
+    font-size: 1.2em;
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+.bt_input {
+    width: 100%;
+    background-color: #215DA6;
+    color: white;
+    font-size: 1.0em;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.bt_input:hover {
+    cursor: pointer;
+}
+
+.shadow {
+    box-shadow: 0px 0px 5px 10px rgba(0, 0, 0, 0.5);
+    background-image: url('/images/background.png');
+    background-color: #96989A;
+}
+
+.Error {
+    width: 100%;
+    background-color: #FE8484;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid brown;
+    color: #900000;
+    padding-left: 45px;
+    background-image: url(icon-error.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.alert {
+    width: 100%;
+    background-color: #ff9900;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid brown;
+    color: black;
+    padding-left: 45px;
+    background-image: url(icon-inf.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.Confirm {
+    width: 100%;
+    background-color: #01A992;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #01A992;
+    color: white;
+    padding-left: 45px;
+    background-image: url(icon-confirme.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.Question {
+    width: 100%;
+    background-color: #FFFAA3;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid #ffcc00;
+    color: black;
+    font-weight: bold;
+    padding-left: 45px;
+    background-image: url(icon-question.png);
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    background-size: 25px;
+}
+
+.Question a {
+    text-decoration: none;
+    color: black;
+}
+
+.Question a:hover {
+    text-decoration: underline;
+}
+
+
+#box {
+    width: 100%;
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    clear: both;
+    float: left;
+}
+
+#view {
+    width: 100%;
+    background-color: none;
+    float: right;
+    margin-left: 1%;
+    background-color: red;
+    display: table;
+}
+
+.title-01 {
+    font-size: 1.4em;
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    color: #093E8C;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+#clear {
+    clear: both;
+}
+
+#footer {
+    width: 100%;
+    height: 25px;
+    background-color: #96989A;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    /* For mobile phones: */
+    #main {
+        padding: 35px;
+    }
+
+    #page {
+        margin: 5px auto;
+    }
+}
+
+@media only screen and (max-width: 423px) {
+
+    /* For mobile phones: */
+    #main {
+        padding: 5px;
+    }
+
+    #page {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    /* For mobile phones: */
+    #main {
+        padding: 0px;
+    }
+
+    #page {
+        width: 100%;
+        margin: auto;
+        padding: 10px;
+    }
+}

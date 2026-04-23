@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+#header{width: 100%;height: 50px; background: #8a0000;display: table;float: left;font-family: 'Roboto', sans-serif;}
+#menu_top_logo{float: left;left:50px;margin: 6px; position: absolute;}
+
+#menu_top_left{float: right; margin-right: 20px;}
+#menu_top_left ul li {display: inline-block;color: white;}
+#menu_top_left ul li a{color: white;text-decoration:none;vertical-align: middle;}
+#menu ul li a:hover{text-decoration: none;}
+
+label[for="bt_menu"]{padding: 5px;background-color: #8a0000;color: white;text-align: center;font-size: 25px;cursor: pointer;width: 50px;height: 50px;position: absolute;z-index: 500;background-image: url(icon-menu-responsive.png);background-repeat: no-repeat; background-size: 100% 100%;}
+label[for="bt_menu"]{display: none;}
+#bt_menu{display: none;}
+
+.menu-vertical{width: 100%;font-size: 0.8em;text-transform: uppercase; background-color: #093e8c;float: left; clear: both; z-index: 1000;position: absolute;}
+.menu-vertical ul{list-style: none;position: relative;}
+.menu-vertical ul li{float: left;}
+
+.menu-vertical a{height: 50px; padding: 20px 15px;font-size: 12px;display: block;text-decoration: none;text-align: center;vertical-align: central; color: #fff;}
+.menu-vertical ul ul{position: absolute;visibility: hidden;}
+.menu-vertical ul li:hover ul{visibility: visible;}
+.menu-vertical a:hover{background-color: #E57618;}
+.menu-vertical li:hover{background-color: #E57618;}
+.menu-vertical ul ul li a{width: 250px;padding-left: 50px;background-color: white; color: #666;border: 1px solid #ccc; border-top: none;text-align: left;}
+.menu-vertical ul ul li a:hover{color: white;}
+.menu-vertical ul ul li a:hover ~ ul li a{background-color: #E57618;}
+.menu-vertical ul ul li{float: none;}
+
+
+.charts{width: 33%;height: 300px;display: inline-table;border:  1px solid #01A992;}
+
+
+@media only screen and (max-width:1024px){
+    /*    #view{width: 100%;}
+        #container{width: 100%;}*/
+    label[for="bt_menu"]{display: block;}
+
+    .menu-vertical{width: 100%;background-color: #8a0000;}
+    .menu-vertical{margin-top: 51px;margin-left: -110%;transition: all .4s;}
+    .menu-vertical{position: absolute;}
+    .menu-vertical ul li{width: 100%;float: none;}
+    .menu-vertical ul ul {position:  static;overflow: hidden;display: none;transition: all .4s;}
+    .menu-vertical ul ul li a{width: 100%;}
+    .menu-vertical ul li:hover ul{height: auto;display: block;}
+
+
+    #bt_menu:checked ~ .menu-vertical{margin-left: 0;transition: all .4s;}
+
+
+    /*remover*/
+    .tb tbody {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        white-space: nowrap;
+    }
+
+    .tb-cell-justify-top{font-size: 12px;}
+    #search_list_student{width: 80%;left: 10%;}
+    #view-1{width: 100%; margin-top: 25px;}
+    #siderbar{width: 100%;min-height: min-content;padding-bottom: 25px;}
+    .charts{width: 100%;margin-bottom: 25px ;display: table;}
+}
