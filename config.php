@@ -22,9 +22,9 @@ define('PATH', dirname(__FILE__)); //DEFINE O CAMINHO RAIZ
 define('PATH_LOGS', PATH . '/logs/'); //DEFINE O CAMINHO RAIZ
 
 
-define('HOME_URI', 'http://localhost/system-generator/'); //DEFINE O LINK RAIZ
+define('HOME_URI', 'http://localhost/modulo_construtor_ui/'); //DEFINE O LINK RAIZ
 define('PATH_IMG_ADM', HOME_URI . 'view/images/'); //DEFINE O CAMINHO PARA A PASTA DE IMAGENS
-define('PATH_UPLOADS_IMG', "http://localhost/system-generator/uploads/"); //DEFINE O CAMINHO PARA A PASTA UPLOADS
+define('PATH_UPLOADS_IMG', "http://localhost/modulo_construtor_ui/uploads/"); //DEFINE O CAMINHO PARA A PASTA UPLOADS
 define('PLUGIN_URI', PATH . "//plugins//"); //DEFINE O CAMINHO PARA A PASTA UPLOADS
 define('LIBS_URI', PATH . "//libs//"); //DEFINE O CAMINHO PARA A PASTA UPLOADS
 
