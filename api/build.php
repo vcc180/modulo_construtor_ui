@@ -4,7 +4,6 @@ include_once("../config.php");
 include_once("../libs/Database.class.php");
 
 header('Content-Type: application/json');
-
 header('Cache-Control: no-cache, no-store, must-revalidate');
 
 $db = new Database();
