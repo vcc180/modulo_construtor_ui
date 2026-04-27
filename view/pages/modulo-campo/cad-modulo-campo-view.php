@@ -78,7 +78,9 @@
 
     document.getElementById("modulo_campo_reference_table").addEventListener("change", function() {
         let tabela = this.value;
+
         fetch("<?php echo HOME_URI ?>api/busca_campos.php?tabela=" + tabela)
+            .then(response => response.json())
             .then(data => {
                 let campoSelected = document.getElementById("reference_key");
                 let campoSelected2 = document.getElementById("reference_option");
@@ -91,12 +93,17 @@
                         let option = document.createElement("option");
                         option.value = campo;
                         option.textContent = campo;
-                        campoSelect.appendChild(option);
+
+                        campoSelected.appendChild(option);
+
+                        // clona para o segundo select
+                        campoSelected2.appendChild(option.cloneNode(true));
                     });
                 } else {
                     console.error("Não é um array:", data);
                 }
-            });
+            })
+            .catch(error => console.error("Erro no fetch:", error));
     });
 
     modulo_campo_fk.addEventListener("click", function(x) {
@@ -104,8 +111,10 @@
             document.getElementById("table_ref").style.display = "block";
         } else {
             document.getElementById("table_ref").style.display = "none";
+            document.getElementById("modulo_campo_reference_table").selectedIndex = -1;
+            document.getElementById("reference_key").selectedIndex = -1;
+            document.getElementById("reference_option").selectedIndex = -1;
         }
-
     });
 
     inputOriginal.addEventListener('input', function() {

@@ -16,6 +16,7 @@ $modulo = $result[0]['modulos_id'];
 $campos = [];
 
 $result = $db->select('tbmodulo_campo','*',"WHERE modulo_campo_modulo_id='{$modulo}'");
+$campos[] = "id";
 foreach ($result as $row) {
     $campos[] = $row['modulo_campo_nome'];
 }

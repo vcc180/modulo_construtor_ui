@@ -32,19 +32,25 @@
             </div>
             <div class="field">
                 <legend>É uma chave estrangeira:</legend>
-                <input class="txt_input" type="checkbox" name="data[modulo_campo_fk]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_fk']) && $modelo->form_data['modulo_campo_fk'] == true ? 'checked' : '' ?> />
+                <input id="modulo_campo_fk" class="txt_input" type="checkbox" name="data[modulo_campo_fk]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_fk']) && $modelo->form_data['modulo_campo_fk'] == true ? 'checked' : '' ?> />
             </div>
-            <div class="field">
-                <legend>Tabela que referencia:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_reference_table]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_table']) ? $modelo->form_data['modulo_campo_reference_table'] : '' ?>" />
-            </div>
-            <div class="field">
-                <legend>Chave que faz referencia:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_reference_key]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_key']) ? $modelo->form_data['modulo_campo_reference_key'] : '' ?>" />
-            </div>
-            <div class="field">
-                <legend>Campo que será exibido:</legend>
-                <input class="txt_input" type="text" name="data[modulo_campo_reference_option]" value="<?php echo isset($modelo->form_data['modulo_campo_reference_option']) ? $modelo->form_data['modulo_campo_reference_option'] : '' ?>" />
+            <div id="table_ref" style="display: none;">
+                <div class="field">
+                    <legend>Tabela que referencia:</legend>
+                    <?php TForm::setInputSelect('modulo_campo_reference_table', 'tbmodulos', 'modulos_table', 'modulos_table', $modelo, 'ORDER BY modulos_table ASC'); ?>
+                </div>
+                <div class="field">
+                    <legend>Chave que faz referencia:</legend>
+                    <select id="reference_key" class="txt_input" name="data[modulo_campo_reference_key]">
+                        <option value="">Selecione um campo</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <legend>Campo que será exibido:</legend>
+                    <select id="reference_option" class="txt_input" name="data[modulo_campo_reference_option]">
+                        <option value="">Selecione um campo</option>
+                    </select>
+                </div>
             </div>
             <div class="field">
                 <legend>Requirido:</legend>
@@ -76,6 +82,49 @@
     }
     const inputOriginal = document.getElementById('modulo_campo_title');
     const modulo_campo_nome = document.getElementById('modulo_campo_nome');
+    const modulo_campo_fk = document.getElementById("modulo_campo_fk");
+
+    document.getElementById("modulo_campo_reference_table").addEventListener("change", function() {
+        let tabela = this.value;
+
+        fetch("<?php echo HOME_URI ?>api/busca_campos.php?tabela=" + tabela)
+            .then(response => response.json())
+            .then(data => {
+                let campoSelected = document.getElementById("reference_key");
+                let campoSelected2 = document.getElementById("reference_option");
+
+                campoSelected.innerHTML = '<option value="">Selecione um campo</option>';
+                campoSelected2.innerHTML = '<option value="">Selecione um campo</option>';
+
+                if (Array.isArray(data)) {
+                    data.forEach(campo => {
+                        let option = document.createElement("option");
+                        option.value = campo;
+                        option.textContent = campo;
+
+                        campoSelected.appendChild(option);
+
+                        // clona para o segundo select
+                        campoSelected2.appendChild(option.cloneNode(true));
+                    });
+                } else {
+                    console.error("Não é um array:", data);
+                }
+            })
+            .catch(error => console.error("Erro no fetch:", error));
+    });
+
+    modulo_campo_fk.addEventListener("click", function(x) {
+        if (this.checked) {
+            document.getElementById("table_ref").style.display = "block";
+        } else {
+            document.getElementById("table_ref").style.display = "none";
+            document.getElementById("modulo_campo_reference_table").selectedIndex = -1;
+            document.getElementById("reference_key").selectedIndex = -1;
+            document.getElementById("reference_option").selectedIndex = -1;
+        }
+    });
+
     inputOriginal.addEventListener('input', function() {
         let texto = inputOriginal.value;
 
