@@ -34,22 +34,24 @@
                 <legend>É uma chave estrangeira:</legend>
                 <input id="modulo_campo_fk" class="txt_input" type="checkbox" name="data[modulo_campo_fk]" value="true" <?php echo  isset($modelo->form_data['modulo_campo_fk']) && $modelo->form_data['modulo_campo_fk'] == true ? 'checked' : '' ?> />
             </div>
-            <div id="table_ref" style="display: none;">
-                <div class="field">
-                    <legend>Tabela que referencia:</legend>
-                    <?php TForm::setInputSelect('modulo_campo_reference_table', 'tbmodulos', 'modulos_table', 'modulos_table', $modelo, 'ORDER BY modulos_table ASC'); ?>
-                </div>
-                <div class="field">
-                    <legend>Chave que faz referencia:</legend>
-                    <select id="reference_key" class="txt_input" name="data[modulo_campo_reference_key]">
-                        <option value="">Selecione um campo</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <legend>Campo que será exibido:</legend>
-                    <select id="reference_option" class="txt_input" name="data[modulo_campo_reference_option]">
-                        <option value="">Selecione um campo</option>
-                    </select>
+            <div id="table_ref" style="display: <?php echo $modelo->form_data['modulo_campo_fk'] == true ? 'block' : 'none' ?>;">
+                <div class="formulario">
+                    <div class="field">
+                        <legend>Tabela que referencia:</legend>
+                        <?php TForm::setInputSelect('modulo_campo_reference_table', 'tbmodulos', 'modulos_table', 'modulos_table', $modelo, 'ORDER BY modulos_table ASC'); ?>
+                    </div>
+                    <div class="field">
+                        <legend>Chave que faz referencia:</legend>
+                        <select id="reference_key" class="txt_input" name="data[modulo_campo_reference_key]">
+                            <option value="">Selecione um campo</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <legend>Campo que será exibido:</legend>
+                        <select id="reference_option" class="txt_input" name="data[modulo_campo_reference_option]">
+                            <option value="">Selecione um campo</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="field">
