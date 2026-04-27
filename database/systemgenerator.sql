@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Abr-2026 às 19:19
+-- Tempo de geração: 27-Abr-2026 às 18:44
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -54,8 +54,9 @@ CREATE TABLE `tbmenu` (
 --
 
 INSERT INTO `tbmenu` (`menu_id`, `menu_projeto_id`, `menu_title`, `menu_nome`, `menu_submenu`, `menu_icon`, `menu_status`) VALUES
-(1, 2, 'Perfil de Usuários', 'PERFIL_DE_USUARIOS', 1, '0', 1),
-(2, 2, 'Loja', 'LOJA', 1, '0', 1);
+(3, NULL, 'Console', 'CONSOLE', 1, 'fa', 1),
+(4, NULL, 'Loja', 'LOJA', 1, 'fa', 1),
+(5, NULL, 'Games', 'GAMES', 1, 'fa', 1);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,12 @@ CREATE TABLE `tbmodulos` (
 --
 
 INSERT INTO `tbmodulos` (`modulos_id`, `modulos_projeto_id`, `modulos_title`, `modulos_modulo`, `modulos_controller`, `modulos_model`, `modulos_table`, `modulos_db_prefixo`, `modulos_primary_key`, `modulos_field_default`, `modulos_field_status`) VALUES
-(3, 2, 'Categoria Jogos', 'categoria_jogos', 'categoria_jogos-controller', 'categoria_jogos-model', 'tbcategoria_jogos', 'categoria_jogos_', 'id', 'nome', '');
+(4, 2, 'Games', 'games', 'games-controller', 'games-model', 'tbgames', 'games_', 'id', 'name', '1'),
+(5, 2, 'Forma Pagamento', 'forma_pagamento', 'forma_pagamento-controller', 'forma_pagamento-model', 'tbforma_pagamento', 'forma_pagamento_', 'id', 'name', '1'),
+(6, 2, 'Category', 'category', 'category-controller', 'category-model', 'tbcategory', 'category_', 'id', 'name', '1'),
+(7, 2, 'Purchases', 'purchases', 'purchases-controller', 'purchases-model', 'tbpurchases', 'purchases_', 'id', 'name', '1'),
+(8, 2, 'Installs', 'installs', 'installs-controller', 'installs-model', 'tbinstalls', 'installs_', 'id', 'name', '1'),
+(9, 2, 'Console', 'console', 'console-controller', 'console-model', 'tbconsole', 'console_', 'id', 'modelo', '1');
 
 -- --------------------------------------------------------
 
@@ -110,8 +116,37 @@ CREATE TABLE `tbmodulo_campo` (
 --
 
 INSERT INTO `tbmodulo_campo` (`modulo_campo_id`, `modulo_campo_modulo_id`, `modulo_campo_nome`, `modulo_campo_title`, `modulo_campo_tipo`, `modulo_campo_fk`, `modulo_campo_reference_table`, `modulo_campo_reference_key`, `modulo_campo_reference_option`, `modulo_campo_required`, `modulo_campo_is_search`, `modulo_campo_status`) VALUES
-(2, 3, 'nome', 'Nome', 4, 0, '', '', '', 1, 1, 1),
-(3, 3, 'categoria', 'Categoria', 4, 0, '', '', '', 1, 1, 1);
+(6, 9, 'uid', 'UID', 4, 0, '', '', '', 1, 1, 1),
+(7, 9, 'modelo', 'Modelo', 4, 0, '', '', '', 1, 1, 1),
+(8, 9, 'n_serie', 'Nº Série', 4, 0, '', '', '', 1, 1, 1),
+(9, 9, 'data_fabricacao', 'Data de fabricacao', 2, 0, '', '', '', 1, 0, 1),
+(10, 9, 'versao', 'Versão', 4, 0, '', '', '', 1, 0, 1),
+(11, 9, 'data_ultima_atualizacao', 'Data Última Atualização', 2, 0, '', '', '', 0, 0, 1),
+(12, 9, 'device_name', 'Device Name', 2, 0, '', '', '', 0, 0, 1),
+(13, 7, 'user_id', 'Usuário', 1, 0, 'tbuser', 'user_id', 'user_username', 1, 1, 1),
+(14, 7, 'game_id', 'Game', 1, 0, 'tbcategoria', '', '', 1, 1, 1),
+(15, 7, 'price_paid', 'Preço de Compra', 7, 0, 'tbcategoria', '', '', 1, 0, 1),
+(16, 7, 'forma_pagamento', 'Forma Pagamento', 1, 0, 'tbcategoria', '', '', 1, 1, 1),
+(17, 8, 'user_id', 'Usuário', 1, 0, '', '', '', 1, 1, 1),
+(18, 8, 'game_id', 'Game', 1, 0, '', '', '', 1, 1, 1),
+(19, 8, 'version', 'Version', 4, 0, '', '', '', 1, 0, 1),
+(20, 8, 'instaled_at', 'Instaled At', 2, 0, '', '', '', 1, 0, 1),
+(21, 4, 'name', 'Name', 4, 0, '', '', '', 1, 1, 1),
+(22, 4, 'slug', 'Slug', 4, 0, '', '', '', 1, 1, 1),
+(23, 4, 'description', 'Description', 4, 0, '', '', '', 0, 0, 1),
+(24, 4, 'cover_url', 'Cover URL', 4, 0, '', '', '', 1, 0, 0),
+(25, 4, 'download_url', 'Download URL', 4, 0, '', '', '', 1, 0, 1),
+(26, 4, 'background_url', 'Background URL', 4, 0, '', '', '', 1, 0, 1),
+(27, 4, 'version', 'Version', 4, 0, '', '', '', 1, 0, 1),
+(28, 4, 'version', 'Version', 5, 0, '', '', '', 1, 0, 1),
+(29, 4, 'size', 'Size', 1, 0, '', '', '', 1, 0, 1),
+(30, 4, 'category_id', 'Category ID', 1, 0, '', '', '', 1, 0, 1),
+(31, 4, 'forma_pagamento_id', 'Forma Pagamento ID', 1, 1, 'tbforma_pagamento', '', '', 1, 0, 1),
+(32, 4, 'price', 'Price', 7, 0, '', '', '', 1, 0, 1),
+(33, 4, 'create_at', 'Create At', 2, 0, '', '', '', 0, 0, 1),
+(34, 4, 'update_at', 'Update At', 2, 0, '', '', '', 0, 0, 1),
+(35, 5, 'nome', 'Nome', 4, 0, '', '', '', 1, 1, 1),
+(36, 6, 'name', 'Name', 4, 0, '', '', '', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -154,13 +189,6 @@ CREATE TABLE `tbsubmenu` (
   `submenu_status` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Extraindo dados da tabela `tbsubmenu`
---
-
-INSERT INTO `tbsubmenu` (`submenu_id`, `submenu_menu_id`, `submenu_nome`, `submenu_title`, `submenu_link`, `submenu_status`) VALUES
-(1, 2, 'CATEGORIA_JOGOS', 'Categoria_Jogos', 'categoria-jogos', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -184,7 +212,8 @@ INSERT INTO `tbtipo_campo` (`tipo_campo_id`, `tipo_campo_nome`) VALUES
 (5, 'float'),
 (6, 'time'),
 (7, 'decimal'),
-(8, 'longtext');
+(8, 'longtext'),
+(9, 'File');
 
 -- --------------------------------------------------------
 
@@ -210,7 +239,7 @@ CREATE TABLE `tbuser` (
 --
 
 INSERT INTO `tbuser` (`user_id`, `user_name`, `user_password`, `user_email`, `user_img`, `user_permissions`, `fk_user_type_id`, `fk_user_id`, `user_ativo`, `user_session_id`) VALUES
-(1, 'Administrador', '0a71a5917c8361f079d77a26b0619fe4', 'vcc180@gmail.com', 'users/default-user.png', 'a:3:{i:0;s:3:\"any\";s:4:\"MENU\";a:7:{s:4:\"HOME\";s:4:\"HOME\";s:8:\"PROJETOS\";a:1:{s:8:\"PROJETOS\";s:8:\"PROJETOS\";}s:7:\"MODULOS\";a:3:{s:7:\"MODULOS\";s:7:\"MODULOS\";s:12:\"MODULO_CAMPO\";s:12:\"MODULO_CAMPO\";s:10:\"TIPO_CAMPO\";s:10:\"TIPO_CAMPO\";}s:4:\"MENU\";a:2:{s:4:\"MENU\";s:4:\"MENU\";s:7:\"SUBMENU\";s:7:\"SUBMENU\";}s:5:\"ICONS\";a:1:{s:5:\"ICONS\";s:5:\"ICONS\";}s:13:\"CONFIGURACOES\";a:2:{s:14:\"USUARIO_SISTEM\";s:14:\"USUARIO_SISTEM\";s:12:\"TIPO_USUARIO\";s:12:\"TIPO_USUARIO\";}s:6:\"LOGOUT\";s:6:\"LOGOUT\";}s:10:\"PERMISSOES\";a:10:{i:0;s:3:\"any\";i:1;s:8:\"PROJETOS\";i:2;s:7:\"MODULOS\";i:3;s:12:\"MODULO_CAMPO\";i:4;s:10:\"TIPO_CAMPO\";i:5;s:4:\"MENU\";i:6;s:7:\"SUBMENU\";i:7;s:5:\"ICONS\";i:8;s:14:\"USUARIO_SISTEM\";i:9;s:12:\"TIPO_USUARIO\";}}', 1, 1, 1, 'c5fv970k5sogbh6f7qt1putcij');
+(1, 'Administrador', '0a71a5917c8361f079d77a26b0619fe4', 'vcc180@gmail.com', 'users/default-user.png', 'a:3:{i:0;s:3:\"any\";s:4:\"MENU\";a:7:{s:4:\"HOME\";s:4:\"HOME\";s:8:\"PROJETOS\";a:1:{s:8:\"PROJETOS\";s:8:\"PROJETOS\";}s:7:\"MODULOS\";a:3:{s:7:\"MODULOS\";s:7:\"MODULOS\";s:12:\"MODULO_CAMPO\";s:12:\"MODULO_CAMPO\";s:10:\"TIPO_CAMPO\";s:10:\"TIPO_CAMPO\";}s:4:\"MENU\";a:2:{s:4:\"MENU\";s:4:\"MENU\";s:7:\"SUBMENU\";s:7:\"SUBMENU\";}s:5:\"ICONS\";a:1:{s:5:\"ICONS\";s:5:\"ICONS\";}s:13:\"CONFIGURACOES\";a:2:{s:14:\"USUARIO_SISTEM\";s:14:\"USUARIO_SISTEM\";s:12:\"TIPO_USUARIO\";s:12:\"TIPO_USUARIO\";}s:6:\"LOGOUT\";s:6:\"LOGOUT\";}s:10:\"PERMISSOES\";a:10:{i:0;s:3:\"any\";i:1;s:8:\"PROJETOS\";i:2;s:7:\"MODULOS\";i:3;s:12:\"MODULO_CAMPO\";i:4;s:10:\"TIPO_CAMPO\";i:5;s:4:\"MENU\";i:6;s:7:\"SUBMENU\";i:7;s:5:\"ICONS\";i:8;s:14:\"USUARIO_SISTEM\";i:9;s:12:\"TIPO_USUARIO\";}}', 1, 1, 1, 'csq8344icsndl7lfd6galpir0r');
 
 -- --------------------------------------------------------
 
@@ -455,19 +484,19 @@ ALTER TABLE `tbicons`
 -- AUTO_INCREMENT de tabela `tbmenu`
 --
 ALTER TABLE `tbmenu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tbmodulos`
 --
 ALTER TABLE `tbmodulos`
-  MODIFY `modulos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `modulos_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tbmodulo_campo`
 --
 ALTER TABLE `tbmodulo_campo`
-  MODIFY `modulo_campo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `modulo_campo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de tabela `tbprojeto`
@@ -485,7 +514,7 @@ ALTER TABLE `tbsubmenu`
 -- AUTO_INCREMENT de tabela `tbtipo_campo`
 --
 ALTER TABLE `tbtipo_campo`
-  MODIFY `tipo_campo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `tipo_campo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tbuser`
