@@ -11,6 +11,12 @@
             $modelo->db = new Database();
             $modelo->form_data = $modelo->db->select('tbmodulo_campo', '*', 'where modulo_campo_id=' . $_REQUEST['modulo_campo_id']);
             $modelo->form_data = $modelo->form_data[0];
+            if($modelo->form_data['modulo_campo_fk']== true){
+                $modulo_table_ref_id = $modelo->db->select('tbmodulos', 'modulos_id', "where modulos_table='{$modelo->form_data['modulo_campo_reference_table']}'");
+                $modulo_table_ref_id = $modulo_table_ref_id[0]['modulos_id'];
+                
+            }
+            print_r($modelo->form_data);
         }
         ?>
         <div class="formulario">
@@ -44,6 +50,15 @@
                         <legend>Chave que faz referencia:</legend>
                         <select id="reference_key" class="txt_input" name="data[modulo_campo_reference_key]">
                             <option value="">Selecione um campo</option>
+                            <?php
+                                // $reference_key = $db->select("tbmodulo_campo", "*","WHERE modulo_campo_modulo_id='{$modulo_table_ref_id}' ORDER BY modulo_campo_nome ASC");
+                                // $reference_key[] = "id";
+                                // if (count($reference_key) > 0){
+                                //     foreach($reference_key as $key){
+                                //         echo "<option value='{$key['modulo_campo_nome']}'>{$key['modulo_campo_nome']}</option>";
+                                //     }
+                                // }
+                            ?>
                         </select>
                     </div>
                     <div class="field">
