@@ -27,7 +27,10 @@ class MenuModel extends MainModel
 
         if ($this->form_data != '') {
 
-
+            if (empty($this->form_data['menu_projeto_id'])) {
+                TMessenger::Error("Preencha o campo Projeto!");
+                return;
+            }
             if (empty($this->form_data['menu_title'])) {
                 TMessenger::Error("Preencha o campo Título!");
                 return;
@@ -49,6 +52,7 @@ class MenuModel extends MainModel
             }
 
             $fields = array(
+                'menu_projeto_id',
                 'menu_title',
                 'menu_nome',
                 'menu_submenu',
@@ -58,6 +62,7 @@ class MenuModel extends MainModel
 
             $values = array(
 
+                $this->form_data['menu_projeto_id'],
                 $this->form_data['menu_title'],
                 $this->form_data['menu_nome'],
                 (isset($this->form_data['menu_submenu']) && $this->form_data['menu_submenu'] == true) ? 1 : 0,
@@ -79,7 +84,6 @@ class MenuModel extends MainModel
             } else {
                 TMessenger::Error('Erro ao criar item, dado existente!!');
             }
-
         }
     }
 
@@ -89,6 +93,10 @@ class MenuModel extends MainModel
         if ($this->form_data != '') {
 
 
+            if (empty($this->form_data['menu_projeto_id'])) {
+                TMessenger::Error("Preencha o campo Projeto!");
+                return;
+            }
             if (empty($this->form_data['menu_title'])) {
                 TMessenger::Error("Preencha o campo Título!");
                 return;
@@ -124,7 +132,7 @@ class MenuModel extends MainModel
             }
 
 
-            $fields = "menu_title='" . $this->form_data["menu_title"] . "', " . "menu_nome='" . $this->form_data["menu_nome"] . "', " . "menu_submenu='" . $this->form_data["menu_submenu"] . "', " . "menu_icon='" . $this->form_data["menu_icon"] . "', " . "menu_status='" . $this->form_data["menu_status"] . "'";
+            $fields = "menu_projeto_id='" . $this->form_data["menu_projeto_id"] . "', menu_title='" . $this->form_data["menu_title"] . "', " . "menu_nome='" . $this->form_data["menu_nome"] . "', " . "menu_submenu='" . $this->form_data["menu_submenu"] . "', " . "menu_icon='" . $this->form_data["menu_icon"] . "', " . "menu_status='" . $this->form_data["menu_status"] . "'";
             $this->db = new Database();
             $r = $this->db->update('tbmenu', $fields, 'menu_id=' . $_REQUEST['menu_id']);
 
